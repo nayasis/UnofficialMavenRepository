@@ -3,9 +3,10 @@
   <groupId>org.nybatis</groupId>
   <artifactId>NyBatisCore</artifactId>
   <versioning>
+    <release>0.5.0-release</release>
     <versions>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>0.5.0-release</version>
     </versions>
-    <lastUpdated>20160704030940</lastUpdated>
+    <lastUpdated>20160718092920</lastUpdated>
   </versioning>
 </metadata>
