@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>io.nayasis.common</groupId>
+  <artifactId>nybatis.ui</artifactId>
+  <versioning>
+    <versions>
+      <version>0.1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20190305093423</lastUpdated>
+  </versioning>
+</metadata>
