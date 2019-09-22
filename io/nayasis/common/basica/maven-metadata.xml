@@ -4,9 +4,8 @@
   <artifactId>basica</artifactId>
   <versioning>
     <versions>
-      <version>0.2.0-SNAPSHOT</version>
       <version>0.2.1-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20190921134847</lastUpdated>
+    <lastUpdated>20190922175534</lastUpdated>
   </versioning>
 </metadata>
