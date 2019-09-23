@@ -1,0 +1,223 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.nayasis.common</groupId>
+  <artifactId>basicafx</artifactId>
+  <version>0.2.1-SNAPSHOT</version>
+  <name>basicafx</name>
+  <description>basic javafx 12 library</description>
+
+  <properties>
+    <java.version>12</java.version>
+    <javafx.version>12.0.1</javafx.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.javadoc.skip>true</maven.javadoc.skip>
+    <github.global.server>github</github.global.server>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>bintray</id>
+      <url>http://jcenter.bintray.com</url>
+    </repository>
+    <repository>
+      <id>nybatis.repo</id>
+      <url>https://github.com/nayasis/UnofficialMavenRepository/raw/master/</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>io.nayasis.common</groupId>
+      <artifactId>basica</artifactId>
+      <version>0.2.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.controlsfx</groupId>
+      <artifactId>controlsfx</artifactId>
+      <version>11.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.8</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jclarion</groupId>
+      <artifactId>image4j</artifactId>
+      <version>0.7</version>
+    </dependency>
+
+    <!-- javafx -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx</artifactId>
+      <version>${javafx.version}</version>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-base</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-web</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-media</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-swing</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+
+    <!-- test -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>5.1.5.RELEASE</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <goals>
+          <goal>compile</goal>
+          <goal>testCompile</goal>
+        </goals>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.1.1</version>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <!--<archive combine.children="append">-->
+              <archive>
+                <manifestEntries>
+                  <Automatic-Module-Name>io.nayasis.common.basicafx</Automatic-Module-Name>
+                </manifestEntries>
+              </archive>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.4</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>github</id>
+      <properties>
+        <github.global.server>github</github.global.server>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+      </properties>
+      <distributionManagement>
+        <repository>
+          <id>internal.repo</id>
+          <name>Temporary Staging Repository</name>
+          <url>file://${project.build.directory}/mvn-repo</url>
+        </repository>
+      </distributionManagement>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.github</groupId>
+            <artifactId>site-maven-plugin</artifactId>
+            <version>0.12</version>
+            <configuration>
+              <merge>true</merge>
+              <includes>
+                <include>**/*</include>
+              </includes>
+              <message>${project.version}</message>                                  <!-- git commit message -->
+              <noJekyll>true</noJekyll>                                              <!-- disable webpage processing -->
+              <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
+              <branch>refs/heads/master</branch>                                     <!-- remote branch name -->
+              <repositoryName>UnofficialMavenRepository</repositoryName>             <!-- github repo name -->
+              <repositoryOwner>nayasis</repositoryOwner>                             <!-- github username  -->
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>site</goal>
+                </goals>
+                <phase>deploy</phase>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
